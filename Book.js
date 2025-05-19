@@ -1,4 +1,0 @@
-/* Book class */
-function Book() {
-
-}
