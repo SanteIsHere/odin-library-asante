@@ -1,0 +1,4 @@
+/* Book class */
+function Book() {
+
+}
