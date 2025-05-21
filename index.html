@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
-    <script src="scripts/main.js"></script>
-</head>
-<body>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library</title>
+        <!-- Script - loads the library and displays books -->
+        <script type="module" src="scripts/main.js"></script>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1 id="library-head">My Library</h1>
+        <div id="library">
+        </div>
+    </body>
+    <button id="new-book-btn" title="Add a book to the library">
+        +New Book
+    </button>
 </html>

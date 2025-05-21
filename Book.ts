@@ -1,10 +1,10 @@
 /* Book class and constructor */
 
 export class Book {
-    id: string;
-    author: string
-    title: string;
-    numPages: number;
+    public id: string;
+    public author: string
+    public title: string;
+    public numPages: number;
 
 
     constructor(author: string, title: string, pages: number) {

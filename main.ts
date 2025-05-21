@@ -1,7 +1,11 @@
-import { Book } from "./Book"
+import { Book } from "./Book.js";
+
+// Get book container (div) via DOM
+const libraryDiv: HTMLElement | null = document.getElementById("library");
+
 
 // Array to store Book objects
-const myLibrary: Book[] = [];
+const myLibrary: Book[] = [new Book("John Doe", "Test Title", 127)];
 
 /**
     Create a Book using the supplied arguments,
@@ -17,3 +21,39 @@ function addBookToLibrary(title: string, author: string,
     myLibrary.push(book);
 }
 
+/**
+ * Add books to the webpage
+ */
+function displayBooks(): void {
+    /* 
+    Iterate through the array of books
+    and display each book in the container
+    */
+    for (let book of myLibrary) {
+        // Create a new book element
+        const bookCard: HTMLDivElement = newBook(book.title, book.author, book.numPages);
+
+        libraryDiv?.appendChild(bookCard);
+    }
+}
+
+/**
+ * 
+ * @param title Title of the book
+ * @param author Author of the book
+ * @param pages Page count
+ */
+function newBook(title: string, author: string, pages: number): HTMLDivElement {
+    const book: HTMLDivElement = document.createElement("div");
+    book.setAttribute("id", "book");
+    book.append(
+        document.createElement("p").textContent = "Hi",
+    )
+    return book;
+} 
+
+// DEBUG
+console.log("Main script running");
+
+
+displayBooks();
