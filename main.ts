@@ -3,6 +3,8 @@ import { Book } from "./Book.js";
 // Get book container (div) via DOM
 const libraryDiv: HTMLElement | null = document.getElementById("library");
 
+// Dialog modal for adding books
+const addBookModal = document.getElementById("modal") as HTMLDialogElement;
 
 // Array to store Book objects
 const myLibrary: Book[] = [new Book("John Doe", "Test Title", 127)];
@@ -55,5 +57,11 @@ function newBook(title: string, author: string, pages: number): HTMLDivElement {
 // DEBUG
 console.log("Main script running");
 
-
+// Populate page with books
 displayBooks();
+
+// Set click event listener for "New Book" button
+const newBookBtn: HTMLElement | null = document.getElementById("new-book-btn");
+newBookBtn?.addEventListener("click", () => {
+    addBookModal?.showModal();
+});

@@ -14,7 +14,18 @@
         <div id="library">
         </div>
     </body>
-    <button id="new-book-btn" title="Add a book to the library">
+    <button id="new-book-btn" class="buttons" title="Add a book">
         +New Book
     </button>
+    <dialog id="modal">
+        <form method="dialog">
+            <label>
+                Book Title:
+                <input type="text" required>
+            </label>
+            <label>Author:<input type="text" required="required"></label>
+            <label>Pages:<input type="number" required="required"></label>
+            <button type="submit" class="buttons">Submit</button>
+        </form>
+    </dialog>
 </html>
