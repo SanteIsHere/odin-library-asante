@@ -17,15 +17,18 @@
     <button id="new-book-btn" class="buttons" title="Add a book">
         +New Book
     </button>
+    <!-- Modal tied to "New Book" button -->
     <dialog id="modal">
-        <form method="dialog">
-            <label>
-                Book Title:
-                <input type="text" required>
-            </label>
-            <label>Author:<input type="text" required="required"></label>
-            <label>Pages:<input type="number" required="required"></label>
-            <button type="submit" class="buttons">Submit</button>
+        <!-- Form used to retrieve book details from user -->
+        <form method="dialog" id="book-input">
+            <h2>Enter Book Details</h2>
+            <div id="form-fields">
+                <label>Book Title: <input type="text" name="title" required></label>
+                <label>Author: <input type="text" name="author" required></label>
+                <label>Pages: <input type="number" name="pages" required></label>
+            </div>
+            
+            <button type="submit" class="buttons">Submit Book</button>
         </form>
     </dialog>
 </html>

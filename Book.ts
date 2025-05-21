@@ -5,6 +5,7 @@ export class Book {
     public author: string
     public title: string;
     public numPages: number;
+    public processed: boolean = false;
 
 
     constructor(author: string, title: string, pages: number) {
