@@ -1,4 +1,9 @@
+// Import custom book class
 import { Book } from "./Book.js";
+
+
+// Array of book icons (emoji)
+const bookIcons: string[] = ['📕', '📘', '📗',  '📗']
 
 /** Get div containing books (from DOM) */
 const libraryDiv: HTMLElement | null = document.getElementById("library");
@@ -10,7 +15,7 @@ const addBookModal = document.getElementById("modal") as HTMLDialogElement;
 const bookForm = document.getElementById("book-input") as HTMLFormElement;
 
 /** Array to store book objects */
-const myLibrary: Book[] = [new Book("John Doe", "Test Title", 127)];
+let myLibrary: Book[] = [new Book("John Doe", "Test Title", 127)];
 
 /**
     Create a Book using the supplied arguments,
@@ -40,7 +45,9 @@ function displayBooks(): void {
     for (let book of myLibrary) {
         if (!book.processed) {
             // Create a new book element
-            const bookCard: HTMLDivElement = newBook(book.title, book.author, book.numPages);
+            const bookCard: HTMLDivElement = newBook(
+                new Book(book.title, book.author, book.numPages)
+            );
 
             libraryDiv?.appendChild(bookCard);
             book.processed = true;
@@ -48,35 +55,65 @@ function displayBooks(): void {
     }
 }
 
+/** 
+ * Retrieve a random icon from the array of book icons
+*/
+function getBookIcon(): string {
+    // Get random index (in range of array length)
+    const index: number = Math.floor(Math.random() * bookIcons.length);
+
+    // Return random emoji from array using index
+    return bookIcons[index];
+}
+
+
 /**
  * Create a book to display on the page.
  * @param title Title of the book
  * @param author Author of the book
  * @param pages Page count
  */
-function newBook(title: string, author: string, pages: number): HTMLDivElement {
+function newBook(bookObj: Book): HTMLDivElement {
     
     /** Create book element in page */ 
     const book: HTMLDivElement = document.createElement("div");
     book.setAttribute("id", "book");
+    book.setAttribute("data-id", `${bookObj.id}`)
     
     /** Book title */
-    const bookTitle = document.createElement("p");
-    bookTitle.textContent = `Title: ${title}`
+    const bookTitle = document.createElement("h2");
+    bookTitle.textContent = `${getBookIcon()} ${bookObj.title}`
+    bookTitle.classList.add("book-details", "book-title");
     
     /** Book author */
     const bookAuthor = document.createElement("p");
-    bookAuthor.textContent = `Author: ${author}`
+    bookAuthor.textContent = `✍️ Author: ${bookObj.author}`
+    bookAuthor.classList.add("book-details");
     
     /** Page count */
     const bookPages = document.createElement("p");
-    bookPages.textContent = `Pages: ${pages}`
+    bookPages.textContent = `📃 Pages: ${bookObj.numPages}`
+    bookPages.classList.add("book-details");
+
+    /** Removal button */
+    const removeBookBtn = document.createElement("a") as HTMLAnchorElement;
+    const removeBookIcon = document.createElement("img") as HTMLImageElement;
+    removeBookBtn.addEventListener("click", () => {
+        // Remove the book when clicking the button
+        const bookID: string|undefined = book.dataset.id;
+
+        myLibrary = myLibrary.filter(
+            (book) => {book.id === bookID}
+        )
+    })
+
 
     // Add the details to the book element
     book.append(
         bookTitle,
         bookAuthor,
-        bookPages
+        bookPages,
+        removeBookBtn
     )
     return book;
 } 
