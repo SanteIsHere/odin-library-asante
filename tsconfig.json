@@ -7,7 +7,7 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "sourceMap": false,
-        "outDir": "scripts/"
+        "outDir": "scripts/compiled"
     },
     "exclude": [
         "node_modules",
