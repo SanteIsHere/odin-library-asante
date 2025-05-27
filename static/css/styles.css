@@ -3,7 +3,7 @@
 }
 
 body {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     display: flex;
     flex-direction: column;
 }
@@ -11,10 +11,12 @@ body {
 #library-head {
     align-self: center;
     color: white;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
 }
 
 #library {
-    outline: 1px solid blue;
+    /* outline: 1px solid blue;  */
     padding: 5px;
     margin: 5px;
     display: flex;
@@ -35,10 +37,18 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #013351;
+    position: relative;
+    transition: all 0.50s ease;
+}
+
+#book:hover {
+    scale: 1.05;
+    box-shadow: white 0px 1px 10px;
 }
 
 .book-details {
     color: white;
+    font-family: "Playfair Display", serif;
 }
 
 .book-title {
@@ -57,9 +67,20 @@ body {
     padding: 10px;
 }
 
-.buttons-close {
-    background-color: red;
+.remove-button {
+    width: fit-content;
+    scale: 0.75;
+    transition: all 0.25s ease-in;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
+.remove-button:hover {
+    opacity: 85%;
+    scale: 0.95;
+}
+
 
 #new-book-btn {
     position: fixed;
@@ -78,5 +99,4 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 50px;
-    /* outline: 1px solid orange; */
 }

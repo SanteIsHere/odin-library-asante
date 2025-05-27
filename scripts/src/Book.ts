@@ -1,5 +1,5 @@
 // Array of book icons (emoji)
-const bookIcons: string[] = ['📕', '📘', '📗',  '📗']
+const bookIcons: string[] = ['📕', '📘', '📗', '📗']
 
 /* Book class and constructor */
 export class Book {
@@ -18,21 +18,6 @@ export class Book {
         this.numPages = pages; // Page count
     }
 }
-
-
-// /**
-// Create a Book using the supplied arguments,
-// add the Book object to a book array
-// */
-// export function addBookToLibrary(library: Book[], title: string, author: string, 
-//     pages: number
-// ): void {
-//     /** Construct the `Book` using supplied parameters */
-//     const book: Book = new Book(author, title, pages);
-
-//     // Add to the library
-//     library.push(book);
-// }
 
 /** 
  * Retrieve a random icon from the array of book icons
